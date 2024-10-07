@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+
+h1, h2, h3, .RALEWAY-FONT {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.FADE-OVERLAY {
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+  mask-image: linear-gradient(0deg, rgba(2, 0, 36, 0.7) 10%, rgba(255, 255, 255, 0) 50%);
+}
+
+.swiper-pagination-bullet {
+  border: 1px solid white;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #a6ff00 !important;
+}
+
+.SECTION-CENTER {
+  @apply w-[80%] 3xs:w-[90%] max-w-[21.063rem] md:max-w-[75rem] mx-auto
+}
