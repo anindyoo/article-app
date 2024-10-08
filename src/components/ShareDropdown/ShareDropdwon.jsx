@@ -14,7 +14,7 @@ const ShareDropdown = () => {
   return (
     <div className="
     SHARE-DROPDOWN
-    absolute
+    absolute z-40
     w-52
     mt-3 -ml-44
     px-4 py-1
