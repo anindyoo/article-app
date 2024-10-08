@@ -51,7 +51,21 @@ const uncategorizedExtra = {
   color: '',
 };
 
+const socials = [
+  {
+    id: 1,
+    name: 'Copy',
+    link: '',
+  },
+  {
+    id: 2,
+    name: 'Twitter',
+    link: '',
+  },
+];
+
 export default {
   categoriesExtras,
   uncategorizedExtra,
+  socials,
 };
