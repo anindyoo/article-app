@@ -12,7 +12,7 @@ const getArticleCategory = async (articleId) => {
   }
 };
 
-const getArticles = async (page, limit) => {
+const getArticlesByPageLimit = async (page, limit) => {
   try {
     const url = `https://fe-tech-test-api-dev-416879028044.asia-southeast2.run.app/api/v1/articles?page=${page}&limit=${limit}`;
     const res = await axios.get(url);
@@ -49,8 +49,40 @@ const getArticleDetail = async (articleId) => {
   }
 };
 
+const getAllArticles = async () => {
+  try {
+    const articlesTemp = [];
+    let page = 1;
+
+    while (page <= 13) {
+      articlesTemp.push(axios.get('https://fe-tech-test-api-dev-416879028044.asia-southeast2.run.app/api/v1/articles', {
+        params: {
+          page,
+          limit: 12,
+        },
+      }));
+      page += 1;
+    }
+
+    const responses = await Promise.all(articlesTemp);
+    const data = responses.map((response) => response.data.data.data).flat();
+
+    const dataWithCategories = Promise.all(
+      data.map(async (item) => ({
+        ...item,
+        category: await getArticleCategory(item.id),
+      })),
+    );
+
+    return dataWithCategories;
+  } catch (error) {
+    return error;
+  }
+};
+
 export default {
-  getArticles,
+  getArticlesByPageLimit,
   getArticleCategory,
   getArticleDetail,
+  getAllArticles,
 };

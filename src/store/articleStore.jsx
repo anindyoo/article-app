@@ -1,9 +1,11 @@
 import { create } from 'zustand';
 
 const useArticleStore = create((set) => ({
-  articlesList: [],
-  setArticlesList: (data) => set({ articlesList: data }),
+  allArticlesList: [],
+  articlesByPageLimitList: [],
   articlesLoading: false,
+  setAllArticlesList: (data) => set({ allArticlesList: data }),
+  setArticlesByPageLimitList: (data) => set({ articlesList: data }),
   setArticlesLoading: (isLoading) => set({ articlesLoading: isLoading }),
 }));
 

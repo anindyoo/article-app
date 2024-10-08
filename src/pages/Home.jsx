@@ -5,7 +5,7 @@ import useArticleStore from '../store/articleStore';
 import useCategoriesStore from '../store/categoriesStore';
 
 const Home = () => {
-  const { articlesList, articlesLoading } = useArticleStore();
+  const { allArticlesList, articlesLoading } = useArticleStore();
   const { categoriesList, categoriesLoading } = useCategoriesStore();
 
   return (
@@ -30,7 +30,7 @@ const Home = () => {
         <section className="
         ARTICLES-SECTION flex flex-col gap-7"
         >
-          <ArticlesSwiper data={articlesList} isLoading={articlesLoading} />
+          <ArticlesSwiper data={allArticlesList} isLoading={articlesLoading} />
           <ExploreBanner />
         </section>
         <Sidebar data={categoriesList} isLoading={categoriesLoading} />

@@ -31,7 +31,7 @@ const App = () => {
 
   const router = createBrowserRouter(routes, routeConfig);
 
-  const { setArticlesList, setArticlesLoading } = useArticleStore();
+  const { setAllArticlesList, setArticlesLoading } = useArticleStore();
   const { setCategoriesList, setCategoriesLoading } = useCategoriesStore();
 
   useEffect(() => {
@@ -39,9 +39,9 @@ const App = () => {
       try {
         setArticlesLoading(true);
         setCategoriesLoading(true);
-        const articlesResult = await articles.getArticles();
         const categoriesResult = await categories.getCategories();
-        setArticlesList(articlesResult);
+        const allArticlesResult = await articles.getAllArticles();
+        setAllArticlesList(allArticlesResult);
         setCategoriesList(categoriesResult);
       } catch (error) {
         return error;
@@ -52,7 +52,7 @@ const App = () => {
       return true;
     };
     getData();
-  }, [setArticlesList, setArticlesLoading, setCategoriesList, setCategoriesLoading]);
+  }, [setAllArticlesList, setArticlesLoading, setCategoriesList, setCategoriesLoading]);
 
   return (
     <div className="

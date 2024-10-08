@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import articles from '../api/articles';
 import helpers from '../helpers/helpers';
 import constants from '../constants/constants';
+// import Sidebar from '../components/Sidebar/Sidebar';
 
 const ArticleDetail = () => {
   const { slug } = useParams();
@@ -30,6 +31,7 @@ const ArticleDetail = () => {
     <div className="
     ARTICLE-DETAIL-PAGE
     SECTION-CENTER
+    flex flex-row gap-7
     min-h-screen"
     >
       {!isLoading ? (
