@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 const Logo = () => (
   <Link
     to="/"
-    className="text-2xl font-bold"
+    className="text-lg lg:text-2xl font-bold"
   >
     Articles
   </Link>

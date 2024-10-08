@@ -13,18 +13,20 @@ const Sidebar = (props) => {
   return (
     <aside className={`
     SIDEBAR
-    ${relatedArticles ? 'h-fit mt-40' : ''}`}
+    ${relatedArticles ? 'h-fit mt-10 lg:mt-40' : ''}`}
     >
       <section className="
       SIDEBAR-TITLE
-      RALEWAY-FONT text-[1.75rem]/[1.1785em] font-bold"
+      RALEWAY-FONT
+      text-[1.75rem]/[1.1785em] font-bold
+      text-center lg:text-left"
       >
         {relatedArticles ? 'More Like This' : 'Explore Categories'}
       </section>
       {!isLoading ? (
         <ul className="
         SIDEBAR-ITEMS-LIST
-        flex flex-col gap-7
+        flex flex-col gap-7 items-center
         mt-7"
         >
           {!relatedArticles

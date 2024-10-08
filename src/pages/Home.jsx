@@ -18,14 +18,14 @@ const Home = () => {
       <section className="TITLE-SECTION mb-px">
         <h2 className="
         TITLE-TEXT
-        text-5xl font-bold"
+        text-2xl lg:text-5xl font-bold"
         >
           Latest Articles
         </h2>
       </section>
       <section className="
       ARTICLES-SIDEBAR-CONTAINER
-      flex flex-row gap-8"
+      flex flex-col lg:flex-row gap-8"
       >
         <section className="
         ARTICLES-SECTION flex flex-col gap-7"

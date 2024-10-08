@@ -16,7 +16,7 @@ const ArticlesSwiper = (props) => {
       loop
       className="
       FEATURED-ARTICLES-SWIPER
-      w-[58rem] h-[39.375rem]
+      w-[20rem] lg:w-[58rem] h-[39.375rem]
       rounded-xl
       border"
     >

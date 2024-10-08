@@ -55,13 +55,14 @@ const ArticleDetail = () => {
     <div className="
     ARTICLE-DETAIL-PAGE
     SECTION-CENTER
-    flex flex-row gap-7
+    flex flex-col lg:flex-row gap-7
     min-h-screen"
     >
       {!isLoading ? (
         <>
           <article className="
           ARTICLE-CONTENT
+          SECTION-CENTER
           flex flex-col gap-5
           w-[58rem]"
           >
@@ -109,6 +110,7 @@ const ArticleDetail = () => {
                 <img
                   src={detail.extras ? detail.extras.image : uncategorizedExtra.image}
                   alt={detail.extras ? detail.extras.imageAlt : uncategorizedExtra.imageAlt}
+                  className="lg:w-auto"
                 />
               </figure>
               <div

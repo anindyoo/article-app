@@ -20,10 +20,10 @@ const AllCategories = () => {
     min-h-screen"
     >
       <section className="TITLE-SECTION">
-        <h1 className="text-5xl font-bold">All Categories</h1>
+        <h1 className="text-2xl lg:text-5xl font-bold">All Categories</h1>
       </section>
       {!categoriesLoading ? (
-        <div className="grid grid-cols-3 gap-x-10 gap-y-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-5 lg:gap-y-12">
           {categoriesList.map((category) => {
             const extras = helpers.findCategoryExtrasById(category?.id);
 

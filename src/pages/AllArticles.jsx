@@ -42,7 +42,7 @@ const AllArticles = () => {
     min-h-screen"
     >
       <section className="TITLE-SECTION">
-        <h1 className="text-5xl font-bold">All Articles</h1>
+        <h1 className="text-2xl lg:text-5xl font-bold">All Articles</h1>
       </section>
       <section className="
       FILTER-SECTION
@@ -55,7 +55,7 @@ const AllArticles = () => {
         />
       </section>
       {!articlesLoading ? (
-        <div className="grid grid-cols-3 gap-x-14 gap-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-14 gap-y-10 lg:gap-y-20">
           {filteredArticles.map((article) => {
             const extras = helpers.findCategoryExtrasById(article.categories[0].id);
             return (

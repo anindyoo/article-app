@@ -29,10 +29,10 @@ const SwiperItem = (props) => {
         >
           {category ? category.name : 'Uncategorized'}
         </div>
-        <h2 className="ARTICLE-TITLE text-6xl font-bold text-white">{title}</h2>
+        <h2 className="ARTICLE-TITLE text-lg lg:text-6xl font-bold text-white">{title}</h2>
         <Link
           to={`/articles/${slug}`}
-          className="RALEWAY-FONT mt-4 text-xl font-medium underline underline-offset-4 text-white"
+          className="RALEWAY-FONT mt-4 text-base lg:text-xl font-medium underline underline-offset-4 text-white"
         >
           Read Article
         </Link>
@@ -50,7 +50,7 @@ const SwiperItem = (props) => {
         <img
           src={articleExtras ? articleExtras.image : uncategorizedExtra.image}
           alt={articleExtras ? articleExtras.imageAlt : uncategorizedExtra.imageAlt}
-          className="w-[58rem] h-[39.375rem]"
+          className="w-[58rem] h-[39.375rem] object-cover"
         />
       </div>
     </div>

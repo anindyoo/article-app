@@ -10,7 +10,7 @@ const NavLinks = () => (
   <ul className="
   NAV-LINKS
   flex flex-row gap-8 items-center
-  text-xl font-medium"
+  text-base lg:text-xl font-medium"
   >
     {links.map((item) => (
       <li key={item.link}>
