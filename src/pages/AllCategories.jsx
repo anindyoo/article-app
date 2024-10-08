@@ -31,7 +31,7 @@ const AllCategories = () => {
               <CategoryCard
                 key={category.id}
                 id={category.id}
-                title={category.name}
+                name={category.name}
                 icon={extras.icon}
                 color={extras.color}
               />
@@ -39,7 +39,7 @@ const AllCategories = () => {
           })}
           <CategoryCard
             id="uncategorized"
-            title="Uncategorized"
+            name="Uncategorized"
             icon={uncategorizedExtra.icon}
             color={uncategorizedExtra.color}
           />

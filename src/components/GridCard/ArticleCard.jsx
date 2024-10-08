@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
+import CategoryBadge from '../CategoryBadge/CategoryBadge';
 
 const ArticleCard = (props) => {
   const {
     slug,
     title,
-    category,
+    categories,
     image,
     imageAlt,
   } = props;
@@ -32,17 +33,13 @@ const ArticleCard = (props) => {
         flex flex-col gap-2
         px-4 pt-4 pb-5"
         >
-          <div className="
-          ARTICLE-CATEGORY
-          RALEWAY-FONT
-          w-fit
-          px-2 py-1
-          text-xs font-semibold
-          rounded-md
-          bg-yellow-400 bg-opacity-90"
-          >
-            {category ? category.name : 'Uncategorized'}
-          </div>
+          <ul className="CATEGORIES-LIST flex flex-row gap-2">
+            {categories && categories.map((cat) => (
+              <li key={cat.id}>
+                <CategoryBadge name={cat.name} />
+              </li>
+            ))}
+          </ul>
           <h2 className="text-2xl font-bold">{title}</h2>
         </div>
       </div>

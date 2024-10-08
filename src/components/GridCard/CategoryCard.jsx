@@ -2,14 +2,15 @@ import { Link } from 'react-router-dom';
 
 const CategoryCard = (props) => {
   const {
-    id,
-    title,
+    name,
     icon,
   } = props;
 
+  const encodedName = encodeURIComponent(name);
+
   return (
     <Link
-      to={`/categories/${id}`}
+      to={`/articles?category_id=${encodedName}`}
     >
       <div className="
       CATEGORY-CARD
@@ -26,7 +27,7 @@ const CategoryCard = (props) => {
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-10">
             <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
           </svg>
-          <h2 className="text-xl font-bold">{title}</h2>
+          <h2 className="text-xl font-bold">{name}</h2>
         </div>
       </div>
     </Link>

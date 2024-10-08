@@ -5,6 +5,7 @@ import helpers from '../helpers/helpers';
 import constants from '../constants/constants';
 import useArticleStore from '../store/articleStore';
 import Sidebar from '../components/Sidebar/Sidebar';
+import CategoryBadge from '../components/CategoryBadge/CategoryBadge';
 
 const ArticleDetail = () => {
   const { slug } = useParams();
@@ -32,15 +33,11 @@ const ArticleDetail = () => {
 
   useEffect(() => {
     const related = allArticlesList
-      .filter((item) => {
-        if (item?.category?.length > 0) {
-          // console.log(item);
-          if (item.category.id === detail.categories[0].id) {
-            return item.slug !== detail.slug;
-          }
-          return false;
+      .filter((article) => {
+        if (article.slug !== detail.slug) {
+          return article.categories[0].id === detail.categories[0].id;
         }
-        return (item.slug !== detail.slug) && (item?.category === null);
+        return false;
       })
       .slice(0, 3);
     setRelatedArticles(related);
@@ -66,16 +63,13 @@ const ArticleDetail = () => {
           >
             <header className="flex flex-col gap-2">
               <h1 className="ARTICLE-TITLE text-4xl font-bold">{detail.title}</h1>
-              <div className="
-              RALEWAY-FONT
-              w-fit
-              px-2 py-1
-              text-sm font-semibold
-              rounded-md
-              bg-emerald-200"
-              >
-                {detail.categories ? detail.categories[0].name : 'Uncategorized'}
-              </div>
+              <ul className="CATEGORIES-LIST flex flex-row gap-2">
+                {detail.categories.map((cat) => (
+                  <li key={cat.id}>
+                    <CategoryBadge name={cat.name} />
+                  </li>
+                ))}
+              </ul>
             </header>
             <section className="
             UPPER-SECTION
@@ -121,9 +115,9 @@ const ArticleDetail = () => {
             border-t border-b"
             >
               <div className="ARTICLE-DATE text-sm">
-                Published in
+                Listed in
                 {' '}
-                {detail.categories ? detail.categories[0].name : 'Uncategorized'}
+                {detail.categories.map((cat) => `#${cat.name} `)}
               </div>
               <div>
                 <button type="button">
@@ -136,7 +130,6 @@ const ArticleDetail = () => {
           </article>
           <Sidebar
             data={relatedArticles}
-            categoryName={detail.categories ? detail.categories[0].name : 'Uncategorized'}
             relatedArticles
           />
         </>

@@ -6,7 +6,9 @@ const getArticleCategory = async (articleId) => {
     const url = `https://fe-tech-test-api-dev-416879028044.asia-southeast2.run.app/api/v1/articles/${articleId}`;
     const res = await axios.get(url);
 
-    return res.data.data.categories ? res.data.data.categories[0] : null;
+    return res.data.data.categories
+      ? res.data.data.categories
+      : [{ id: 'uncategorized', name: 'Uncategorized' }];
   } catch (error) {
     return error;
   }
@@ -21,7 +23,9 @@ const getArticleDetail = async (articleId) => {
       ? helpers.findCategoryExtrasById(resultData.categories[0].id)
       : null;
     const finalResult = {
-      ...resultData, extras,
+      extras,
+      ...resultData,
+      categories: resultData.categories || [{ id: 'uncategorized', name: 'Uncategorized' }],
     };
 
     return finalResult;
@@ -51,7 +55,7 @@ const getAllArticles = async () => {
     const dataWithCategories = Promise.all(
       data.map(async (item) => ({
         ...item,
-        category: await getArticleCategory(item.id),
+        categories: await getArticleCategory(item.id),
       })),
     );
 

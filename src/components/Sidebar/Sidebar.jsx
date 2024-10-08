@@ -4,7 +4,9 @@ import SidebarItem from './SidebarItem';
 
 const Sidebar = (props) => {
   const {
-    data, isLoading, categoryName, relatedArticles,
+    data,
+    isLoading,
+    relatedArticles,
   } = props;
   const { categoriesExtras } = constants;
 
@@ -17,17 +19,7 @@ const Sidebar = (props) => {
       SIDEBAR-TITLE
       RALEWAY-FONT text-[1.75rem]/[1.1785em] font-bold"
       >
-        {relatedArticles ? (
-          <span>
-            {categoryName !== 'Uncategorized' ? (
-              <span>
-                More From
-                {' '}
-                <span className="text-blue-500">{` ${categoryName}`}</span>
-              </span>
-            ) : 'Related Articles'}
-          </span>
-        ) : 'Explore Categories'}
+        {relatedArticles ? 'More Like This' : 'Explore Categories'}
       </section>
       {!isLoading ? (
         <ul className="

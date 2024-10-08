@@ -2,15 +2,16 @@ import { Link } from 'react-router-dom';
 
 const SidebarItem = (props) => {
   const {
-    id,
     name,
     icon,
     more,
   } = props;
 
+  const encodedName = encodeURIComponent(name);
+
   return (
     <Link
-      to={more ? '/categories' : `/categories/${id}`}
+      to={more ? '/categories' : `/articles?category_id=${encodedName}`}
     >
       <div className="
       SIDEBAR-ITEM
