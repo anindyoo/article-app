@@ -32,11 +32,17 @@ const AllCategories = () => {
                 key={category.id}
                 id={category.id}
                 title={category.name}
-                icon={extras ? extras.icon : uncategorizedExtra.icon}
-                color={extras ? extras.color : uncategorizedExtra.color}
+                icon={extras.icon}
+                color={extras.color}
               />
             );
           })}
+          <CategoryCard
+            id="uncategorized"
+            title="Uncategorized"
+            icon={uncategorizedExtra.icon}
+            color={uncategorizedExtra.color}
+          />
         </div>
       ) : 'Loading...'}
     </div>
