@@ -1,9 +1,12 @@
 import ArticlesSwiper from '../components/ArticlesSwiper/ArticlesSwiper';
 import ExploreBanner from '../components/ExploreBanner/ExploreBanner';
 import Sidebar from '../components/Sidebar/Sidebar';
+import useArticleStore from '../store/articleStore';
+import useCategoriesStore from '../store/categoriesStore';
 
 const Home = () => {
-  console.log();
+  const { articlesList, articlesLoading } = useArticleStore();
+  const { categoriesList, categoriesLoading } = useCategoriesStore();
 
   return (
     <div className="
@@ -16,7 +19,7 @@ const Home = () => {
         TITLE-TEXT
         text-5xl font-bold"
         >
-          Featured Articles
+          Latest Articles
         </h2>
       </section>
       <section className="
@@ -26,10 +29,10 @@ const Home = () => {
         <section className="
         ARTICLES-SECTION flex flex-col gap-7"
         >
-          <ArticlesSwiper />
+          <ArticlesSwiper data={articlesList} isLoading={articlesLoading} />
           <ExploreBanner />
         </section>
-        <Sidebar />
+        <Sidebar data={categoriesList} isLoading={categoriesLoading} />
       </section>
     </div>
   );

@@ -1,6 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useEffect } from 'react';
 import Main from './layouts/Main';
 import Home from './pages/Home';
+import articles from './api/articles';
+import useArticleStore from './store/articleStore';
+import categories from './api/categories';
+import useCategoriesStore from './store/categoriesStore';
 
 const App = () => {
   const routes = [
@@ -20,6 +25,29 @@ const App = () => {
   };
 
   const router = createBrowserRouter(routes, routeConfig);
+
+  const { setArticlesList, setArticlesLoading } = useArticleStore();
+  const { setCategoriesList, setCategoriesLoading } = useCategoriesStore();
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        setArticlesLoading(true);
+        setCategoriesLoading(true);
+        const articlesResult = await articles.getArticles();
+        const categoriesResult = await categories.getCategories();
+        setArticlesList(articlesResult);
+        setCategoriesList(categoriesResult);
+      } catch (error) {
+        return error;
+      } finally {
+        setArticlesLoading(false);
+        setCategoriesLoading(false);
+      }
+      return true;
+    };
+    getData();
+  }, [setArticlesList, setArticlesLoading, setCategoriesList, setCategoriesLoading]);
 
   return (
     <div className="

@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
+import constants from '../../constants/constants';
 
-const SwiperItem = () => {
-  console.log();
+const SwiperItem = (props) => {
+  const { title, slug, category } = props;
 
+  const { categoriesExtras } = constants;
+
+  const articleExtras = categoriesExtras.find((item) => item.id === category?.id);
   return (
     <div className="
     SWIPER-ITEM
@@ -19,15 +23,15 @@ const SwiperItem = () => {
         RALEWAY-FONT
         w-fit
         px-2 py-1
-        text-xs font-medium
+        text-xs font-semibold
         rounded-md
-        bg-yellow-400 bg-opacity-75"
+        bg-yellow-400 bg-opacity-90"
         >
-          Karyawan Tetap
+          {category ? category.name : 'Uncategorized'}
         </div>
-        <h2 className="ARTICLE-TITLE text-6xl font-bold text-white">Computer Systems Analyst IV</h2>
+        <h2 className="ARTICLE-TITLE text-6xl font-bold text-white">{title}</h2>
         <Link
-          to="/"
+          to={`/${slug}`}
           className="RALEWAY-FONT mt-4 text-xl font-medium underline underline-offset-4 text-white"
         >
           Read Article
@@ -44,8 +48,8 @@ const SwiperItem = () => {
         w-[58rem] h-[39.375rem]"
         />
         <img
-          src="https://images.unsplash.com/photo-1573879410138-96c2a1ad3210"
-          alt="Illustration for 'Karyawan Tetap' category: People around table in cafetaria."
+          src={articleExtras ? articleExtras.image : 'https://images.unsplash.com/photo-1490539339142-e097edaaf1b7'}
+          alt={articleExtras ? articleExtras.imageAlt : 'Illustration for uncategorized article: Low-angle photo of high-rise building.'}
           className="w-[58rem] h-[39.375rem]"
         />
       </div>

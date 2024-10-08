@@ -5,8 +5,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import SwiperItem from './SwiperItem';
 
-const ArticlesSwiper = () => {
-  console.log();
+const ArticlesSwiper = (props) => {
+  const { data, isLoading } = props;
 
   return (
     <Swiper
@@ -20,10 +20,17 @@ const ArticlesSwiper = () => {
       rounded-xl
       border"
     >
-      <SwiperSlide><SwiperItem /></SwiperSlide>
-      <SwiperSlide><SwiperItem /></SwiperSlide>
-      <SwiperSlide><SwiperItem /></SwiperSlide>
-      <SwiperSlide><SwiperItem /></SwiperSlide>
+      {!isLoading
+        ? data.slice(0, 5).map((item) => (
+          <SwiperSlide key={item.id}>
+            <SwiperItem
+              id={item.id}
+              title={item.title}
+              slug={item.slug}
+              category={item.category}
+            />
+          </SwiperSlide>
+        )) : 'Loading...'}
     </Swiper>
   );
 };
