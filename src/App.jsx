@@ -35,11 +35,7 @@ const App = () => {
     },
   ];
 
-  const routeConfig = {
-    basename: '/article-app',
-  };
-
-  const router = createHashRouter(routes, routeConfig);
+  const router = createHashRouter(routes);
 
   const {
     setAllArticlesList,
