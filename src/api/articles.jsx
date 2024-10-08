@@ -34,13 +34,13 @@ const getArticleDetail = async (articleId) => {
   }
 };
 
-const getAllArticles = async () => {
+const getAllArticles = async (sort = 'desc') => {
   try {
     const articlesTemp = [];
     let page = 1;
 
     while (page <= 13) {
-      articlesTemp.push(axios.get('https://fe-tech-test-api-dev-416879028044.asia-southeast2.run.app/api/v1/articles', {
+      articlesTemp.push(axios.get(`https://fe-tech-test-api-dev-416879028044.asia-southeast2.run.app/api/v1/articles?sort${sort}`, {
         params: {
           page,
           limit: 12,

@@ -9,7 +9,7 @@ const CategoryBadge = (props) => {
     px-2 py-1
     text-sm font-semibold
     rounded-md
-    bg-yellow-400 bg-opacity-90"
+    bg-yellow-200 bg-opacity-90"
     >
       {name}
     </div>

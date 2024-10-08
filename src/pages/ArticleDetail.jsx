@@ -35,7 +35,7 @@ const ArticleDetail = () => {
     const related = allArticlesList
       .filter((article) => {
         if (article.slug !== detail.slug) {
-          return article.categories[0].id === detail.categories[0].id;
+          return true;
         }
         return false;
       })

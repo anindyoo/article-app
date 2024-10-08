@@ -41,28 +41,44 @@ const App = () => {
 
   const router = createBrowserRouter(routes, routeConfig);
 
-  const { setAllArticlesList, setArticlesLoading } = useArticleStore();
+  const {
+    setAllArticlesList,
+    setArticlesLoading,
+    articlesOrder,
+  } = useArticleStore();
   const { setCategoriesList, setCategoriesLoading } = useCategorysStore();
 
   useEffect(() => {
     const getData = async () => {
       try {
         setArticlesLoading(true);
-        setCategoriesLoading(true);
-        const categoriesResult = await categories.getCategories();
-        const allArticlesResult = await articles.getAllArticles();
+        const allArticlesResult = await articles.getAllArticles(articlesOrder);
         setAllArticlesList(allArticlesResult);
-        setCategoriesList(categoriesResult);
       } catch (error) {
         return error;
       } finally {
         setArticlesLoading(false);
+      }
+      return true;
+    };
+    getData();
+  }, []);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        setCategoriesLoading(true);
+        const categoriesResult = await categories.getCategories();
+        setCategoriesList(categoriesResult);
+      } catch (error) {
+        return error;
+      } finally {
         setCategoriesLoading(false);
       }
       return true;
     };
     getData();
-  }, [setAllArticlesList, setArticlesLoading, setCategoriesList, setCategoriesLoading]);
+  }, []);
 
   return (
     <div className="
