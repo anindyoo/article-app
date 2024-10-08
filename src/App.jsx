@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { useEffect } from 'react';
 import Main from './layouts/Main';
 import Home from './pages/Home';
@@ -39,7 +39,7 @@ const App = () => {
     basename: '/article-app',
   };
 
-  const router = createBrowserRouter(routes, routeConfig);
+  const router = createHashRouter(routes, routeConfig);
 
   const {
     setAllArticlesList,
