@@ -1,13 +1,16 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../components/Header/Header';
+import TopNavbar from '../components/Navbar/TopNavbar';
+import BottomNavbar from '../components/Navbar/BottomNavbar';
 
 const Main = () => (
   <>
-    <Header />
+    <TopNavbar />
     <main className="main-section">
-      <div className="BUFFER h-28" />
+      <div className="BUFFER h-14 mb-14" />
+      <Outlet />
+      {/* <div className="BUFFER h-36 mt-16" /> */}
     </main>
-    <Outlet />
+    <BottomNavbar />
   </>
 );
 
