@@ -10,7 +10,7 @@ const SidebarItem = (props) => {
 
   return (
     <Link
-      to={`/categories/${id}`}
+      to={more ? '/categories' : `/categories/${id}`}
     >
       <div className="
       SIDEBAR-ITEM
