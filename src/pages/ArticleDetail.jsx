@@ -14,7 +14,7 @@ const ArticleDetail = () => {
     const getData = async () => {
       try {
         setIsLoading(true);
-        const detailResult = await articles.getArtilceDetail(slug);
+        const detailResult = await articles.getArticleDetail(slug);
         setDetail(detailResult);
       } catch (error) {
         return error;

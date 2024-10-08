@@ -12,10 +12,7 @@ const getArticleCategory = async (articleId) => {
   }
 };
 
-const getArticles = async () => {
-  const page = 1;
-  const limit = 12;
-
+const getArticles = async (page, limit) => {
   try {
     const url = `https://fe-tech-test-api-dev-416879028044.asia-southeast2.run.app/api/v1/articles?page=${page}&limit=${limit}`;
     const res = await axios.get(url);
@@ -34,12 +31,14 @@ const getArticles = async () => {
   }
 };
 
-const getArtilceDetail = async (articleId) => {
+const getArticleDetail = async (articleId) => {
   try {
     const url = `https://fe-tech-test-api-dev-416879028044.asia-southeast2.run.app/api/v1/articles/${articleId}`;
     const res = await axios.get(url);
     const resultData = res.data.data;
-    const extras = helpers.findCategoryExtrasById(resultData.categories[0].id);
+    const extras = resultData.categories
+      ? helpers.findCategoryExtrasById(resultData.categories[0].id)
+      : null;
     const finalResult = {
       ...resultData, extras,
     };
@@ -53,5 +52,5 @@ const getArtilceDetail = async (articleId) => {
 export default {
   getArticles,
   getArticleCategory,
-  getArtilceDetail,
+  getArticleDetail,
 };
