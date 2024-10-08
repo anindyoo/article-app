@@ -5,9 +5,10 @@ import Home from './pages/Home';
 import articles from './api/articles';
 import useArticleStore from './store/articleStore';
 import categories from './api/categories';
-import useCategoriesStore from './store/categoriesStore';
+import useCategorysStore from './store/categoryStore';
 import ArticleDetail from './pages/ArticleDetail';
 import AllArticles from './pages/AllArticles';
+import AllCategories from './pages/AllCategories';
 
 const App = () => {
   const routes = [
@@ -26,6 +27,10 @@ const App = () => {
           path: '/articles/:slug',
           element: <ArticleDetail />,
         },
+        {
+          path: '/categories',
+          element: <AllCategories />,
+        },
       ],
     },
   ];
@@ -37,7 +42,7 @@ const App = () => {
   const router = createBrowserRouter(routes, routeConfig);
 
   const { setAllArticlesList, setArticlesLoading } = useArticleStore();
-  const { setCategoriesList, setCategoriesLoading } = useCategoriesStore();
+  const { setCategoriesList, setCategoriesLoading } = useCategorysStore();
 
   useEffect(() => {
     const getData = async () => {

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import constants from '../constants/constants';
-import GridCard from '../components/GridCard/GridCard';
+import ArticleCard from '../components/GridCard/ArticleCard';
 import helpers from '../helpers/helpers';
 import useArticleStore from '../store/articleStore';
 
@@ -14,7 +14,7 @@ const AllArticles = () => {
 
   return (
     <div className="
-    HOME-PAGE
+    ALL-ARTICLES-PAGE
     SECTION-CENTER
     flex flex-col gap-12
     min-h-screen"
@@ -28,7 +28,7 @@ const AllArticles = () => {
             const extras = helpers.findCategoryExtrasById(article?.category?.id);
 
             return (
-              <GridCard
+              <ArticleCard
                 key={article.id}
                 id={article.id}
                 slug={article.slug}

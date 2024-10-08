@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const GridCard = (props) => {
+const ArticleCard = (props) => {
   const {
     slug,
     title,
@@ -14,7 +14,7 @@ const GridCard = (props) => {
       to={`/articles/${slug}`}
     >
       <div className="
-      ARTICLES GRID
+      ARTICLE-CARD
       border
       rounded-xl
       shadow-lg
@@ -28,7 +28,7 @@ const GridCard = (props) => {
           object-cover"
         />
         <div className="
-        ARTICLE INFO
+        ARTICLE-INFO
         flex flex-col gap-2
         px-4 pt-4 pb-5"
         >
@@ -50,4 +50,4 @@ const GridCard = (props) => {
   );
 };
 
-export default GridCard;
+export default ArticleCard;

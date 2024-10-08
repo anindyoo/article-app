@@ -1,10 +1,10 @@
 import { create } from 'zustand';
 
-const useCategoriesStore = create((set) => ({
+const useCategoryStore = create((set) => ({
   categoriesList: [],
-  setCategoriesList: (data) => set({ categoriesList: data }),
   categoriesLoading: false,
+  setCategoriesList: (data) => set({ categoriesList: data }),
   setCategoriesLoading: (isLoading) => set({ categoriesLoading: isLoading }),
 }));
 
-export default useCategoriesStore;
+export default useCategoryStore;

@@ -2,11 +2,11 @@ import ArticlesSwiper from '../components/ArticlesSwiper/ArticlesSwiper';
 import ExploreBanner from '../components/ExploreBanner/ExploreBanner';
 import Sidebar from '../components/Sidebar/Sidebar';
 import useArticleStore from '../store/articleStore';
-import useCategoriesStore from '../store/categoriesStore';
+import useCategoryStore from '../store/categoryStore';
 
 const Home = () => {
   const { allArticlesList, articlesLoading } = useArticleStore();
-  const { categoriesList, categoriesLoading } = useCategoriesStore();
+  const { categoriesList, categoriesLoading } = useCategoryStore();
 
   return (
     <div className="
