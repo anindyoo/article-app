@@ -6,6 +6,7 @@ import articles from './api/articles';
 import useArticleStore from './store/articleStore';
 import categories from './api/categories';
 import useCategoriesStore from './store/categoriesStore';
+import ArticleDetail from './pages/ArticleDetail';
 
 const App = () => {
   const routes = [
@@ -15,6 +16,10 @@ const App = () => {
         {
           path: '/',
           element: <Home />,
+        },
+        {
+          path: '/:slug',
+          element: <ArticleDetail />,
         },
       ],
     },

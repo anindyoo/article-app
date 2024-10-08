@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "Work Sans", sans-serif;
+body, p, .ARTICLE-CONTENT span {
+  font-family: "Work Sans", sans-serif !important;
   font-optical-sizing: auto;
 }
 

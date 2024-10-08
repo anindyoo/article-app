@@ -12,7 +12,8 @@ const Home = () => {
     <div className="
     HOME-PAGE
     SECTION-CENTER
-    flex flex-col gap-6"
+    flex flex-col gap-6
+    min-h-screen"
     >
       <section className="TITLE-SECTION mb-px">
         <h2 className="

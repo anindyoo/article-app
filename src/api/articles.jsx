@@ -1,4 +1,5 @@
 import axios from 'axios';
+import helpers from '../helpers/helpers';
 
 const getArticleCategory = async (articleId) => {
   try {
@@ -33,7 +34,24 @@ const getArticles = async () => {
   }
 };
 
+const getArtilceDetail = async (articleId) => {
+  try {
+    const url = `https://fe-tech-test-api-dev-416879028044.asia-southeast2.run.app/api/v1/articles/${articleId}`;
+    const res = await axios.get(url);
+    const resultData = res.data.data;
+    const extras = helpers.findCategoryExtrasById(resultData.categories[0].id);
+    const finalResult = {
+      ...resultData, extras,
+    };
+
+    return finalResult;
+  } catch (error) {
+    return error;
+  }
+};
+
 export default {
   getArticles,
   getArticleCategory,
+  getArtilceDetail,
 };

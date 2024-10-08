@@ -3,10 +3,10 @@ import constants from '../../constants/constants';
 
 const SwiperItem = (props) => {
   const { title, slug, category } = props;
-
-  const { categoriesExtras } = constants;
+  const { categoriesExtras, uncategorizedExtra } = constants;
 
   const articleExtras = categoriesExtras.find((item) => item.id === category?.id);
+
   return (
     <div className="
     SWIPER-ITEM
@@ -48,8 +48,8 @@ const SwiperItem = (props) => {
         w-[58rem] h-[39.375rem]"
         />
         <img
-          src={articleExtras ? articleExtras.image : 'https://images.unsplash.com/photo-1490539339142-e097edaaf1b7'}
-          alt={articleExtras ? articleExtras.imageAlt : 'Illustration for uncategorized article: Low-angle photo of high-rise building.'}
+          src={articleExtras ? articleExtras.image : uncategorizedExtra.image}
+          alt={articleExtras ? articleExtras.imageAlt : uncategorizedExtra.imageAlt}
           className="w-[58rem] h-[39.375rem]"
         />
       </div>
